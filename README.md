@@ -1,2 +1,2 @@
 # R_functions
- common functions
+ common R functions for daily work
