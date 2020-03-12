@@ -1,2 +1,2 @@
 # R_functions
- common R functions for daily work
+ common R functions for Leishmania project
