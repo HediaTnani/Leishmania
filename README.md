@@ -1,2 +1,2 @@
-# R_functions
- common R functions for Leishmania project
+# Useful funtions and files
+ Useful funtions and files for Leishmania project
