@@ -1,5 +1,7 @@
-# Usage MasigLeish(mouse = "Balb") or MasigLeish(mouse = "c57")
-
+# Author: Hédia Tnani
+# Date: 3/4/2020
+# Usage:MasigLeish(mouse = "Balb") or MasigLeish(mouse = "c57")
+##############################################################################################################################
 MasigLeish = function (mouse){ 
   options(warn = -1)
   cat ("Install required packages")
