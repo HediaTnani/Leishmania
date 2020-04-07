@@ -25,7 +25,7 @@ MasigLeish = function (mouse){
   suppressPackageStartupMessages(library(pkg_name, character.only = TRUE))
   }
   if (mouse== "Balb"){# Balb
-    message (" loading packages ....")
+    message ("loading packages ....")
     require(GEOquery)
     require(oligo)
     require(mogene10sttranscriptcluster.db)
