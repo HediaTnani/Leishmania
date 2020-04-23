@@ -1,6 +1,6 @@
 # Author: Hédia Tnani
 # Date: 04/03/2020
-# Usage:MasigLeish(mouse = "Balb") or MasigLeish(mouse = "c57")
+# Usage:MasigLeish(mouse = "Balb", comp=c("IvsC","PvsC","KPvsC","PvsKP"))
 ##############################################################################################################################
 MasigLeish = function (mouse, comp){
   options(warn = -1)
@@ -556,7 +556,7 @@ MasigLeish = function (mouse, comp){
         write.csv(KPvsC, "KPvsC_B.csv")
         message ("Analysis completed successfully ....")
       }#else
-    }else if(comp== "PvsKP"){
+    }else if (comp== "PvsKP"){
       if (!dir.exists(paste0(getwd(),"/gse31997data"))){
         message("downloading data ...")
         getGEOSuppFiles("GSE31997")
@@ -635,7 +635,7 @@ MasigLeish = function (mouse, comp){
         names(sigsb$sig.genes)
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$PvsKP, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
-        PvsKP   <- sigsb$sig.genes$PvsKP$sig.pvalues
+        PvsKP <- sigsb$sig.genes$PvsKP$sig.pvalues
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
@@ -728,8 +728,8 @@ MasigLeish = function (mouse, comp){
         write.csv(PvsKP, "PvsKP_B.csv")
         message ("Analysis completed successfully ....")
       }#else
-    }else{
-      message ("Please check your comparison again ....")
-    }#
+    }#PvsKP
   }#Balb
 }#function
+
+
