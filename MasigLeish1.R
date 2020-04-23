@@ -1,5 +1,5 @@
 # Author: Hédia Tnani
-# Date: 3/4/2020
+# Date: 04/03/2020
 # Usage:MasigLeish(mouse = "Balb", comp=c("IvsC","PvsC","KPvsC","PvsKP")) or MasigLeish(mouse = "c57", comp=c("IvsC","PvsC","KPvsC","PvsKP"))
 #################################################################################################################################
 MasigLeish = function (mouse, comp){
