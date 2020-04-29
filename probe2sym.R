@@ -11,6 +11,6 @@ probe2sym <- function(sig, bmm, bmh) {
   sig <- left_join(sig, genesV2, 
                    by = c("ensembl_mm" = "Gene.stable.ID"))
   sig$ensembl_hs=sig$Gene.stable.ID.1
-  sig=select(sig,-Gene.stable.ID.1)
+  sig=dplyr::select(sig,-Gene.stable.ID.1)
   return(sig)
 }
