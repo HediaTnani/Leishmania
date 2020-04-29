@@ -120,7 +120,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
                            dataset = "mmusculus_gene_ensembl",
                            host = 'www.ensembl.org')
-        IvsC   <- probe2sym(IvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        IvsC   <- probe2sym(IvsC, mart.mm,mart.hs)
         message ("writing csv files ....")
         write.csv(IvsC, "IvsC_B.csv")
         message ("Analysis IvsC for Balb completed successfully ....")
@@ -203,7 +204,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
                            dataset = "mmusculus_gene_ensembl",
                            host = 'www.ensembl.org')
-        IvsC   <- probe2sym(IvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        IvsC   <- probe2sym(IvsC, mart.mm,mart.hs)
         message ("writing csv files ....")
         write.csv(IvsC, "IvsC_B.csv")
         message ("Analysis IvsC for Balb completed successfully ....")
@@ -294,7 +296,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
                            dataset = "mmusculus_gene_ensembl",
                            host = 'www.ensembl.org')
-        PvsC   <- probe2sym(PvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        PvsC   <- probe2sym(PvsC, mart.mm,mart.hs)
         message ("writing csv files ....")
         write.csv(PvsC, "PvsC_B.csv")
         message ("Analysis PvsC for Balb completed successfully ....")
@@ -377,7 +380,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
                            dataset = "mmusculus_gene_ensembl",
                            host = 'www.ensembl.org')
-        PvsC   <- probe2sym(PvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        PvsC   <- probe2sym(PvsC, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(PvsC, "PvsC_B.csv")
         message ("Analysis PvsC for Balb completed successfully ....")
@@ -468,7 +472,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
                            dataset = "mmusculus_gene_ensembl",
                            host = 'www.ensembl.org')
-        KPvsC   <- probe2sym(KPvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        KPvsC   <- probe2sym(KPvsC, mart.mm,mart.hs)
         message ("writing csv files ....")
         write.csv(KPvsC, "KPvsC_B.csv")
         message ("Analysis KPvsC for Balb completed successfully ....")
@@ -551,7 +556,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
                            dataset = "mmusculus_gene_ensembl",
                            host = 'www.ensembl.org')
-        KPvsC   <- probe2sym(KPvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        KPvsC   <- probe2sym(KPvsC, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(KPvsC, "KPvsC_B.csv")
         message ("Analysis KPvsC for Balb completed successfully ....")
@@ -641,7 +647,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
                            dataset = "mmusculus_gene_ensembl",
                            host = 'www.ensembl.org')
-        PvsKP   <- probe2sym(PvsKP, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        PvsKP   <- probe2sym(PvsKP, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(PvsKP, "PvsKP_B.csv")
         message ("Analysis PvsKP for Balb completed successfully ....")  
@@ -723,7 +730,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
                            dataset = "mmusculus_gene_ensembl",
                            host = 'www.ensembl.org')
-        PvsKP   <- probe2sym(PvsKP, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        PvsKP   <- probe2sym(PvsKP, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(PvsKP, "PvsKP_B.csv")
         message ("Analysis PvsKP for Balb completed successfully ....")
@@ -828,7 +836,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
                            dataset = "mmusculus_gene_ensembl", 
                            host = 'www.ensembl.org')
-        IvsC   <- probe2sym(IvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        IvsC   <- probe2sym(IvsC, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(IvsC, "IvsC_C.csv")
         message ("Analysis IvsC for c57 completed successfully ....")
@@ -914,7 +923,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
                            dataset = "mmusculus_gene_ensembl", 
                            host = 'www.ensembl.org')
-        IvsC   <- probe2sym(IvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        IvsC   <- probe2sym(IvsC, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(IvsC, "IvsC_C.csv")
         message ("Analysis IvsC for c57 completed successfully ....")
@@ -1008,7 +1018,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
                            dataset = "mmusculus_gene_ensembl", 
                            host = 'www.ensembl.org')
-        PvsC   <- probe2sym(PvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        PvsC   <- probe2sym(PvsC, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(PvsC, "PvsC_C.csv")
         message ("Analysis PvsC for c57 completed successfully ....")
@@ -1094,7 +1105,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
                            dataset = "mmusculus_gene_ensembl", 
                            host = 'www.ensembl.org')
-        PvsC   <- probe2sym(PvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        PvsC   <- probe2sym(PvsC, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(PvsC, "PvsC_C.csv")
         message ("Analysis PvsC for c57 completed successfully ....")
@@ -1188,7 +1200,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
                            dataset = "mmusculus_gene_ensembl", 
                            host = 'www.ensembl.org')
-        KPvsC <- probe2sym(KPvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        KPvsC <- probe2sym(KPvsC, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(KPvsC, "KPvsC_C.csv")
         message ("Analysis KPvsC for c57 completed successfully ....")
@@ -1274,7 +1287,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
                            dataset = "mmusculus_gene_ensembl", 
                            host = 'www.ensembl.org')
-        KPvsC <- probe2sym(KPvsC, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        KPvsC <- probe2sym(KPvsC, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(KPvsC, "KPvsC_C.csv")
         message ("Analysis KPvsC for C57 completed successfully ....")
@@ -1367,7 +1381,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
                            dataset = "mmusculus_gene_ensembl", 
                            host = 'www.ensembl.org')
-        PvsKP <- probe2sym(PvsKP, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        PvsKP <- probe2sym(PvsKP, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(PvsKP, "PvsKP_C.csv")
         message ("Analysis PvsKP completed successfully ....")
@@ -1452,7 +1467,8 @@ MasigLeish = function (mouse, comp){
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
                            dataset = "mmusculus_gene_ensembl", 
                            host = 'www.ensembl.org')
-        PvsKP <- probe2sym(PvsKP, mart.mm)
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        PvsKP <- probe2sym(PvsKP, mart.mm, mart.hs)
         message ("writing csv files ....")
         write.csv(PvsKP, "PvsKP_C.csv")
         message ("Analysis PvsKP for c57 completed successfully ....")
