@@ -5,7 +5,7 @@
 MasigLeish = function (mouse, comp){
   options(warn = -1)
   cat ("Install required packages")
-  packages <- c("tidyverse", "doParallel","foreign","itertools", "devtools")
+  packages <- c("tidyverse", "doParallel","foreign","itertools", "devtools", "dplyr")
   for (pkg in packages) {
     if (!pkg %in% rownames(installed.packages())) {
       message("Installing missing package: ", pkg)
