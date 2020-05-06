@@ -115,6 +115,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$InfectedvsControl, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         IvsC   <- sigsb$sig.genes$InfectedvsControl$sig.pvalues
+        write.csv(IvsC, "IvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
@@ -199,6 +200,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$InfectedvsControl, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         IvsC   <- sigsb$sig.genes$InfectedvsControl$sig.pvalues
+        write.csv(IvsC, "IvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
@@ -291,6 +293,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$PvsControl, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsC   <- sigsb$sig.genes$PvsControl$sig.pvalues
+        write.csv(PvsC, "PvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
@@ -375,6 +378,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$PvsControl, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsC   <- sigsb$sig.genes$PvsControl$sig.pvalues
+        write.csv(PvsC, "PvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
@@ -467,6 +471,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$KPvsControl, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         KPvsC   <- sigsb$sig.genes$KPvsControl$sig.pvalues
+        write.csv(KPvsC, "KPvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
@@ -551,6 +556,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$KPvsControl, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         KPvsC   <- sigsb$sig.genes$KPvsControl$sig.pvalues
+        write.csv(KPvsC, "KPvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
@@ -643,6 +649,7 @@ MasigLeish = function (mouse, comp){
         see.genes(sigsb$sig.genes$PvsKP, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsKP <- sigsb$sig.genes$PvsKP$sig.pvalues
         message ("from probes to genes symbols ....")
+        write.csv(PvsKP, "PvsKP_B_v0.csv")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
                            dataset = "mmusculus_gene_ensembl",
@@ -725,6 +732,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$PvsKP, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsKP   <- sigsb$sig.genes$PvsKP$sig.pvalues
+        write.csv(PvsKP, "PvsKP_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
@@ -831,6 +839,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$InfectedvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         IvsC   <- sigsc$sig.genes$InfectedvsControl$sig.pvalues
+        write.csv(IvsC, "IvsC_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
@@ -918,6 +927,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$InfectedvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         IvsC   <- sigsc$sig.genes$InfectedvsControl$sig.pvalues
+        write.csv(IvsC, "IvsC_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
@@ -1013,6 +1023,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$PvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsC   <- sigsc$sig.genes$PvsControl$sig.pvalues
+        write.csv(PvsC, "PvsC_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
@@ -1100,6 +1111,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$PvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsC   <- sigsc$sig.genes$PvsControl$sig.pvalues
+        write.csv(PvsC, "PvsC_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
@@ -1196,6 +1208,7 @@ MasigLeish = function (mouse, comp){
         see.genes(sigsc$sig.genes$KPvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         KPvsC <- sigsc$sig.genes$KPvsControl$sig.pvalues
         message ("from probes to genes symbols ....")
+        write.csv(KPvsC, "KPvsC_C_v0.csv")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
                            dataset = "mmusculus_gene_ensembl", 
@@ -1282,6 +1295,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$KPvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         KPvsC <- sigsc$sig.genes$KPvsControl$sig.pvalues
+        write.csv(KPvsC, "KPvsC_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
@@ -1376,6 +1390,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$PvsKP, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsKP <- sigsc$sig.genes$PvsKP$sig.pvalues
+        write.csv(PvsKP, "PvsKP_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
@@ -1462,6 +1477,7 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$PvsKP, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsKP <- sigsc$sig.genes$PvsKP$sig.pvalues
+        write.csv(PvsKP, "PvsKP_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
@@ -1476,5 +1492,3 @@ MasigLeish = function (mouse, comp){
     }#PvsKP
   }#c57
 }#function
-
-
