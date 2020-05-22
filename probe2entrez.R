@@ -1,4 +1,4 @@
-getGenes <- function(sig, bm) {
+probe2entrez <- function(sig, bm) {
   genes <- getBM(attributes = c("affy_mogene_1_0_st_v1", "entrezgene_id"), 
                  filters = "affy_mogene_1_0_st_v1", 
                  values = rownames(sig), 
