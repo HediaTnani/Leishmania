@@ -1,4 +1,4 @@
-# Author: Hédia Tnani
+# Author: HÃ©dia Tnani
 # Date: 04/03/2020
 # Usage:MasigLeish(mouse = "Balb", comp=c("IvsC","PvsC","KPvsC","PvsKP")) or MasigLeish(mouse = "c57", comp=c("IvsC","PvsC","KPvsC","PvsKP"))
 #################################################################################################################################
@@ -297,6 +297,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitb<- p.vectorp(expb, designb,Q = 0.1, MT.adjust = "BH", min.obs = 20)
         tstepb <- T.fitp(fitb, step.method = "backward", alfa = 0.05)
@@ -307,6 +308,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$PvsControl, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsC   <- sigsb$sig.genes$PvsControl$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        PvsC    <- probe2entrez(PvsC , mart.mm)
         write.csv(PvsC, "PvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -382,6 +389,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitb<- p.vectorp(expb, designb,Q = 0.1, MT.adjust = "BH", min.obs = 20)
         tstepb <- T.fitp(fitb, step.method = "backward", alfa = 0.05)
@@ -392,6 +400,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$PvsControl, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsC   <- sigsb$sig.genes$PvsControl$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        PvsC   <- probe2entrez(PvsC, mart.mm)
         write.csv(PvsC, "PvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -475,6 +489,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitb<- p.vectorp(expb, designb,Q = 0.1, MT.adjust = "BH", min.obs = 20)
         tstepb <- T.fitp(fitb, step.method = "backward", alfa = 0.05)
@@ -485,6 +500,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$KPvsControl, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         KPvsC   <- sigsb$sig.genes$KPvsControl$sig.pvalues
+         message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        KPvsC   <- probe2entrez(KPvsC, mart.mm)
         write.csv(KPvsC, "KPvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -560,6 +581,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitb<- p.vectorp(expb, designb,Q = 0.1, MT.adjust = "BH", min.obs = 20)
         tstepb <- T.fitp(fitb, step.method = "backward", alfa = 0.05)
@@ -570,6 +592,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$KPvsControl, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         KPvsC   <- sigsb$sig.genes$KPvsControl$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        KPvsC   <- probe2entrez(KPvsC, mart.mm)
         write.csv(KPvsC, "KPvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -652,6 +680,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitb<- p.vectorp(expb, designb,Q = 0.1, MT.adjust = "BH", min.obs = 20)
         tstepb <- T.fitp(fitb, step.method = "backward", alfa = 0.05)
@@ -662,8 +691,14 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$PvsKP, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsKP <- sigsb$sig.genes$PvsKP$sig.pvalues
-        message ("from probes to genes symbols ....")
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        PvsKP  <- probe2entrez(PvsKP, mart.mm)
         write.csv(PvsKP, "PvsKP_B_v0.csv")
+        message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
                            dataset = "mmusculus_gene_ensembl",
@@ -736,6 +771,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitb<- p.vectorp(expb, designb,Q = 0.1, MT.adjust = "BH", min.obs = 20)
         tstepb <- T.fitp(fitb, step.method = "backward", alfa = 0.05)
@@ -746,6 +782,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsb$summary[,c(1:2)])
         see.genes(sigsb$sig.genes$PvsKP, show.fit = T, dis=designb$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsKP   <- sigsb$sig.genes$PvsKP$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        PvsKP   <- probe2entrez(PvsKP, mart.mm)
         write.csv(PvsKP, "PvsKP_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -842,6 +884,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitc<- p.vectorp(expc, designc,Q = 0.1, MT.adjust = "BH", min.obs = 3)
         tstepc <- T.fitp(fitc, step.method = "backward", alfa = 0.05)
@@ -853,6 +896,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$InfectedvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         IvsC   <- sigsc$sig.genes$InfectedvsControl$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        IvsC   <- probe2entrez(IvsC, mart.mm)
         write.csv(IvsC, "IvsC_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -930,6 +979,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitc<- p.vectorp(expc, designc,Q = 0.1, MT.adjust = "BH", min.obs = 3)
         tstepc <- T.fitp(fitc, step.method = "backward", alfa = 0.05)
@@ -941,6 +991,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$InfectedvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         IvsC   <- sigsc$sig.genes$InfectedvsControl$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        IvsC   <- probe2entrez(IvsC, mart.mm)
         write.csv(IvsC, "IvsC_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -1026,6 +1082,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitc<- p.vectorp(expc, designc,Q = 0.1, MT.adjust = "BH", min.obs = 3)
         tstepc <- T.fitp(fitc, step.method = "backward", alfa = 0.05)
@@ -1037,6 +1094,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$PvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsC   <- sigsc$sig.genes$PvsControl$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        PvsC   <- probe2entrez(PvsC, mart.mm)
         write.csv(PvsC, "PvsC_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -1114,6 +1177,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitc<- p.vectorp(expc, designc,Q = 0.1, MT.adjust = "BH", min.obs = 3)
         tstepc <- T.fitp(fitc, step.method = "backward", alfa = 0.05)
@@ -1125,6 +1189,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$PvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsC   <- sigsc$sig.genes$PvsControl$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        PvsC   <- probe2entrez(PvsC, mart.mm)
         write.csv(PvsC, "PvsC_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -1210,6 +1280,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitc<- p.vectorp(expc, designc,Q = 0.1, MT.adjust = "BH", min.obs = 3)
         tstepc <- T.fitp(fitc, step.method = "backward", alfa = 0.05)
@@ -1221,8 +1292,14 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$KPvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         KPvsC <- sigsc$sig.genes$KPvsControl$sig.pvalues
-        message ("from probes to genes symbols ....")
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        KPvsC   <- probe2entrez(KPvsC, mart.mm)
         write.csv(KPvsC, "KPvsC_C_v0.csv")
+        message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL", 
                            dataset = "mmusculus_gene_ensembl", 
@@ -1298,6 +1375,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitc<- p.vectorp(expc, designc,Q = 0.1, MT.adjust = "BH", min.obs = 3)
         tstepc <- T.fitp(fitc, step.method = "backward", alfa = 0.05)
@@ -1309,6 +1387,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$KPvsControl, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         KPvsC <- sigsc$sig.genes$KPvsControl$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        KPvsC   <- probe2entrez(KPvsC, mart.mm)
         write.csv(KPvsC, "KPvsC_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -1393,6 +1477,7 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
         fitc<- p.vectorp(expc, designc,Q = 0.1, MT.adjust = "BH", min.obs = 3)
         tstepc <- T.fitp(fitc, step.method = "backward", alfa = 0.05)
@@ -1404,6 +1489,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$PvsKP, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsKP <- sigsc$sig.genes$PvsKP$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        PvsKP   <- probe2entrez(PvsKP, mart.mm)
         write.csv(PvsKP, "PvsKP_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
@@ -1480,8 +1571,9 @@ MasigLeish = function (mouse, comp){
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/pvectorp.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/position.R")
         source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2sym.R")
+        source_url("https://raw.githubusercontent.com/HediaTnani/Leishmania/master/probe2entrez.R")
         message("Fitting the regression model...")
-        fitc<- p.vectorp(expc, designc,Q = 0.1, MT.adjust = "BH", min.obs = 3)
+        fitc <- p.vectorp(expc, designc,Q = 0.1, MT.adjust = "BH", min.obs = 3)
         tstepc <- T.fitp(fitc, step.method = "backward", alfa = 0.05)
         sigsc <- get.siggenes(tstepc, rsq = 0.6, vars = "groups")
         sigsc %>%
@@ -1491,6 +1583,12 @@ MasigLeish = function (mouse, comp){
         suma2Venn(sigsc$summary[,c(1:2)])
         see.genes(sigsc$sig.genes$PvsKP, show.fit = T, dis=designc$dis, cluster.method = "hclust", cluster.data = 1, k.mclust = TRUE)
         PvsKP <- sigsc$sig.genes$PvsKP$sig.pvalues
+        message ("from probes to entrez id ....")
+        require(biomaRt)
+        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                           dataset = "mmusculus_gene_ensembl",
+                           host = 'www.ensembl.org')
+        PvsKP <- probe2entrez(PvsKP, mart.mm)
         write.csv(PvsKP, "PvsKP_C_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
