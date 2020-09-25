@@ -133,7 +133,7 @@ MasigLeish = function (mouse, comp){
         mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
         IvsC   <- probe2sym(IvsC, mart.mm,mart.hs)
         message ("writing csv files ....")
-        write.csv(IvsC, "IvsC_B.csv")
+        write.csv(IvsC, "IvsC_B.csv",row.names=TRUE)
         message ("Analysis IvsC for Balb completed successfully ....")
       }else{
         celFiles <- list.celfiles("./gse31997data",full.names = TRUE)
