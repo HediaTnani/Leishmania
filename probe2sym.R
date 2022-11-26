@@ -1,4 +1,5 @@
 probe2sym <- function(sig, bmm, bmh) {
+  require(biomaRt)
   genes <- getBM(attributes = c("affy_mogene_1_0_st_v1", "mgi_symbol","entrezgene_id","ensembl_gene_id"), filters = "affy_mogene_1_0_st_v1", values = rownames(sig), mart = bmm)
   m <- match(rownames(sig), genes$affy_mogene_1_0_st_v1)
   sig$affy <- genes[m, "affy"]
