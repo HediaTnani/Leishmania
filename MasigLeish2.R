@@ -124,7 +124,8 @@ MasigLeish = function (mouse, comp){
                            dataset = "mmusculus_gene_ensembl",
                            host = 'www.ensembl.org')
         IvsC   <- probe2entrez(IvsC, mart.mm)
-        write.csv(IvsC, "IvsC_B_v0.csv")
+        IvsC1 <- data.frame(IvsC, row.names = 1)
+        write.csv(IvsC1, "IvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
         mart.mm <- useMart(biomart = "ensembl",
@@ -228,8 +229,9 @@ MasigLeish = function (mouse, comp){
         mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl",
                         host="https://dec2021.archive.ensembl.org")
         IvsC   <- probe2sym(IvsC, mart.mm,mart.hs)
+        IvsC1 <- data.frame(IvsC, row.names = 1)
         message ("writing csv files ....")
-        write.csv(IvsC, "IvsC_B.csv",row.names=TRUE)
+        write.csv(IvsC1, "IvsC_B.csv",row.names=F)
         message ("Analysis IvsC for Balb completed successfully ....")
       }#else
     }else if (comp== "PvsC"){
