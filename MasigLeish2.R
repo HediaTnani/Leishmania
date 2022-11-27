@@ -127,10 +127,11 @@ MasigLeish = function (mouse, comp){
         write.csv(IvsC, "IvsC_B_v0.csv")
         message ("from probes to genes symbols ....")
         require(biomaRt)
-        mart.mm <- useMart(biomart = "ENSEMBL_MART_ENSEMBL",
-                           dataset = "mmusculus_gene_ensembl",
-                           host = 'www.ensembl.org')
-        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+        mart.mm <- useMart(biomart = "ensembl",
+                         dataset = "mmusculus_gene_ensembl",
+                         host="https://dec2021.archive.ensembl.org")
+        mart.hs = useMart("ensembl", dataset = "hsapiens_gene_ensembl",
+                        host="https://dec2021.archive.ensembl.org")
         IvsC   <- probe2sym(IvsC, mart.mm,mart.hs)
         message ("writing csv files ....")
         write.csv(IvsC, "IvsC_B.csv",row.names=TRUE)
