@@ -7,7 +7,7 @@ probe2sym <- function(sig, bmm, bmh) {
   sig$entrez_id<- genes[m, "entrezgene_id"]
   sig$ensembl_mm<- genes[m, "ensembl_gene_id"]
   x=sig$ensembl_mm
-  genesV2 = getLDS(attributes = c("ensembl_gene_id"), filters = "ensembl_gene_id", values = x , mart = bmm, attributesL = c("ensembl_gene_id"), martL = bmh)
+  genesV2 = getLDS(attributes = c("ensembl_gene_id"), filters = "ensembl_gene_id", values = x , mart = bmm, attributesL = c("ensembl_gene_id"), martL = bmh,, uniqueRows=T)
   require(dplyr)
   require(readr)
   sig <- left_join(sig, genesV2, 
